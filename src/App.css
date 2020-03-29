@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi+2:400,500,600&display=swap');
+body{
+  margin: 0;
+  background: rgb(131,118,144);
+background: radial-gradient(circle, rgba(131,118,144,1) 0%, rgba(86,74,91,1) 55%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'Baloo Thambi 2';
+  font-size: 17px;
+  font-weight: 600;
+}
+
 .completada{
   text-decoration: line-through;
+}
+
+button, .submit{
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 3px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #44055e;
+    border-radius: 6px;
+    border: 1px solid #44055e;
+    font-family: 'Baloo Thambi 2';
+    font-weight: 500;
+    width: auto;
+    height: auto;
+  }
+
+
+form{
+  margin-left: 20px;
+}
+
+input{
+  width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+  display:inline-block;
+  font-family: 'Baloo Thambi 2';
+}
+
+li{
+  margin-bottom: 10px;
 }

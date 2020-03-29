@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+
 const App = () => {
 
   const ElementoDeLaLista = ({ tarea, i }) => {
@@ -9,6 +10,7 @@ const App = () => {
         {tarea.nombre}
         <button onClick={() => handleEraseCLick(i)}>X</button>
         <button onClick={() => handleCompleteClick(i)}>{tarea.completado === false ? `Marcar como completado` : `Marcar como no completado`}</button>
+
       </li>)
   }
   //por que en el cod agregamos i? si antes funcionaba
@@ -26,9 +28,7 @@ const App = () => {
   }
 
   const [tareas, setTareas] = useState([
-    { nombre: "Hacer fiaca", completado: true },
-    { nombre: "Dormir", completado: true },
-    { nombre: "Descansar", completado: false },
+    { nombre: "Manteca", completado: false },
   ])
 
   const [nuevaTarea, setNuevaTarea] = useState("")
@@ -37,7 +37,7 @@ const App = () => {
     setNuevaTarea(e.target.value)
   }
 
-  const handleSubmit = e =>{
+  const handleSubmit = e => {
     e.preventDefault()
     const listaDeTareas = tareas
     const objeto = {
@@ -49,14 +49,14 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="main">
       <ul>
         {tareas.map((tarea, i) =>
           <ElementoDeLaLista key={i} tarea={tarea} i={i}></ElementoDeLaLista>)}
       </ul>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Agregar tarea..." onChange={handleChange}></input>
-        <input type="submit" value="Agregar"></input>
+        <input className="submit" type="submit" value="Agregar"></input>
       </form>
     </div>
   );
