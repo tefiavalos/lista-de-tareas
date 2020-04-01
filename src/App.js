@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Form from './components/Form'
 
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
 
       </li>)
   }
-  //por que en el cod agregamos i? si antes funcionaba
+  
   const handleEraseCLick = indiceTareaABorrar => {
     const tareasFiltradas = tareas.filter((tarea, i) => i !== indiceTareaABorrar)
     setTareas(tareasFiltradas)
@@ -30,23 +31,22 @@ const App = () => {
   const [tareas, setTareas] = useState([
     { nombre: "Manteca", completado: false },
   ])
+  let [nuevaTarea, setNuevaTarea] = useState([{}])
 
-  const [nuevaTarea, setNuevaTarea] = useState("")
-
-  const handleChange = e => {
-    setNuevaTarea(e.target.value)
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    const listaDeTareas = tareas
+  let funcionDelPadre = infoDelHijo => {
     const objeto = {
-      nombre: nuevaTarea,
+      nombre: infoDelHijo,
       completado: false,
     }
-    listaDeTareas.push(objeto)
-    setTareas(listaDeTareas)
+    setNuevaTarea(objeto)
   }
+  
+  let funcionDelPadreOnSubmit = () =>{
+    let tareaNueva = [...tareas, nuevaTarea]
+    setTareas(tareaNueva)
+   
+  }
+  
 
   return (
     <div className="main">
@@ -54,10 +54,7 @@ const App = () => {
         {tareas.map((tarea, i) =>
           <ElementoDeLaLista key={i} tarea={tarea} i={i}></ElementoDeLaLista>)}
       </ul>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Agregar tarea..." onChange={handleChange}></input>
-        <input className="submit" type="submit" value="Agregar"></input>
-      </form>
+          <Form funcionDelPadre={funcionDelPadre} funcionDelPadreOnSubmit={funcionDelPadreOnSubmit}/>
     </div>
   );
 }
