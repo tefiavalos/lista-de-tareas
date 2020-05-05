@@ -1,14 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi+2:400,500,600&display=swap');
 body{
   margin: 0;
-  background: rgb(131,118,144);
-background: radial-gradient(circle, rgba(131,118,144,1) 0%, rgba(86,74,91,1) 55%);
+  background-image: url(https://fondos.io/wp-content/uploads/2019/01/star-wars-wallpapers-hd_1867-640x400.jpg);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-family: 'Baloo Thambi 2';
   font-size: 17px;
   font-weight: 600;
+  color: #eee;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-image: url(https://image.shutterstock.com/image-vector/perfect-starry-night-sky-background-260nw-1065804473.jpg);
+  color: #eee;
+  margin: 0;
+}
+
+h1{
+  margin: 0;
+}
+
+#root{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .completada{
@@ -20,14 +42,18 @@ button, .submit{
     text-decoration: none;
     padding: 3px;
     font-size: 12px;
-    color: #ffffff;
-    background-color: #44055e;
+    color: #eeeeee;
+    background-color: #555555;
     border-radius: 6px;
-    border: 1px solid #44055e;
+    border: 1px solid #555;
     font-family: 'Baloo Thambi 2';
     font-weight: 500;
     width: auto;
     height: auto;
+  }
+  .submit:hover{
+    background-color: #eee;
+    color: #555
   }
 
 

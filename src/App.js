@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './components/Form'
-
+import Nav from './components/Nav'
 
 const App = () => {
 
@@ -29,11 +29,13 @@ const App = () => {
   }
 
   const [tareas, setTareas] = useState([
-    { nombre: "Manteca", completado: false },
+  
   ])
-  let [nuevaTarea, setNuevaTarea] = useState([{}])
+  let [nuevaTarea, setNuevaTarea] = useState([{
+    nombre: "", completado: false
+  }])
 
-  let funcionDelPadre = infoDelHijo => {
+  const funcionDelPadre = infoDelHijo => {
     const objeto = {
       nombre: infoDelHijo,
       completado: false,
@@ -44,18 +46,21 @@ const App = () => {
   let funcionDelPadreOnSubmit = () =>{
     let tareaNueva = [...tareas, nuevaTarea]
     setTareas(tareaNueva)
-   
   }
   
-
+  
   return (
+    <>
+    <Nav ></Nav>
     <div className="main">
       <ul>
         {tareas.map((tarea, i) =>
           <ElementoDeLaLista key={i} tarea={tarea} i={i}></ElementoDeLaLista>)}
       </ul>
-          <Form funcionDelPadre={funcionDelPadre} funcionDelPadreOnSubmit={funcionDelPadreOnSubmit}/>
+          <Form funcionDelPadre={funcionDelPadre} value={tareas} funcionDelPadreOnSubmit={funcionDelPadreOnSubmit}/>
     </div>
+
+    </>
   );
 }
 
